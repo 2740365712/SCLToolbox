@@ -1,96 +1,109 @@
-#include <iostream>
-#include <cstdlib>
-#include <cstdio>
-#include <cmath>
-#include <algorithm>
 #include <windows.h>
+#include <algorithm>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
 using namespace std;
 typedef long long ll;
-char ca[100]="plus";
-int cmd,len;
+char ca[100] = "plus";
+int cmd, len;
 int knowit(char a[100]);
 void pingtool();
 int main() {
-	char input[100];
-	while(1) {
-		cout<<"---------------------------------------------------------------\n¼òÒ×ÃüÁîÐÐ¹¤¾ßÏä-SCLToolbox v0.8-Beta\n¹¦ÄÜÖ¸Áî²Ëµ¥:\n0.ÍË³ö\n1.¹ØÓÚ\n2.ÇåÆÁ\n3.ping²âÊÔ\n4.°ïÖúÖÐÐÄ\n5.Windows¹Ø»úÐ¡ÖúÊÖ\n---------------------------------------------------------------\nÇëÊäÈëÖ¸Áî£º";
-		cin>>input;
-		len=strlen(input);
-		len<100 ? cmd=knowit(input) : cmd=-1;
-		system("cls");
-		if(cmd==0) {
-			cout<<"Goodbye!";
-			break;
-		} else if(cmd==1) {
-			cout<<"Èí¼þ°æ±¾£ºv0.8-Beta(20210728)\n×÷Õß£ºÃÎÀïáäáà£¨ÐÇÒ¹Starlit-Night£©\n±àÐ´ÈÕÆÚ£º2021Äê7ÔÂ28ÈÕ\n";
-			Sleep(3000);
-		} else if(cmd==2) {
-		} else if(cmd==3) {			
-			pingtool();
-		} else if(cmd==4) {
-			cout<<"°ïÖúÖÐÐÄ\n"<<"1.¼Ó·¨ÔËËãÖ¸Áî£¨ÊµÑéÐÔ£¬½á¹û±£ÁôÁ½Î»Ð¡Êý£©£º\nplus n a1 a2 a3 ¡­¡­ an"<<"\n2.»ñÈ¡×îÐÂ°æ±¾£º\n·ÃÎÊ https://github.com/2740365712/SCLToolbox/releases"<<"\n";
-			Sleep(3000);
-		} else if(cmd==5) {
-			cout<<"Windows¹Ø»úÐ¡ÖúÊÖ£¨20210728£©\n1.Á¢¿Ì¹Ø»ú\n2.30·ÖÖÓºó¹Ø»ú\n3.1Ð¡Ê±ºó¹Ø»ú\nÇëÊäÈëÄúµÄÑ¡Ôñ£º";
-			int userinp;
-			cin>>userinp;
-			switch(userinp){
-				case 1:system("shutdown -s -t 0");break;
-				case 2:system("shutdown -s -t 1800");break;
-				case 3:system("shutdown -s -t 3600");break;
-			}
-		} else if(cmd==101) {
-			int n;
-			double num[10000],sum=0;
-			cin>>n;
-			for(int i=0; i<n; i++) {
-				cin>>num[i];
-				sum+=num[i];
-			}
-			printf("%.2f\n",sum);
-		} else cout<<"No such command!\n";
-	}
-	return 0;
+    char input[100];
+    while (1) {
+        cout << "---------------------------------------------------------------\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½-SCLToolbox v0.8.1\nï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ëµï¿½:\n0.ï¿½Ë³ï¿½\n1.ï¿½ï¿½ï¿½ï¿½\n2.ï¿½ï¿½ï¿½ï¿½\n3.pingï¿½ï¿½ï¿½ï¿½\n4.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n5.Windowsï¿½Ø»ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½\n---------------------------------------------------------------\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½î£º";
+        cin >> input;
+        len = strlen(input);
+        len < 100 ? cmd = knowit(input) : cmd = -1;
+        system("cls");
+        if (cmd == 0) {
+            cout << "Goodbye!";
+            break;
+        } else if (cmd == 1) {
+            cout << "ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½v0.8.1(20210731)\nï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à£¨ï¿½ï¿½Ò¹Starlit-Nightï¿½ï¿½\nï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ú£ï¿½2021ï¿½ï¿½7ï¿½ï¿½31ï¿½ï¿½\n";
+            Sleep(3000);
+        } else if (cmd == 2) {
+        } else if (cmd == 3) {
+            pingtool();
+        } else if (cmd == 4) {
+            cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+                 << "1.ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½î£¨Êµï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\nplus n a1 a2 a3 ï¿½ï¿½ï¿½ï¿½ an"
+                 << "\n2.ï¿½ï¿½È¡ï¿½ï¿½ï¿½Â°æ±¾ï¿½ï¿½\nï¿½ï¿½ï¿½ï¿½ https://github.com/2740365712/SCLToolbox/releases"
+                 << "\n";
+            Sleep(3000);
+        } else if (cmd == 5) {
+            cout << "Windowsï¿½Ø»ï¿½Ð¡ï¿½ï¿½ï¿½Ö£ï¿½20210731ï¿½ï¿½\nï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ø»ï¿½\nï¿½ï¿½2ï¿½ï¿½30ï¿½ï¿½ï¿½Óºï¿½ï¿½Ø»ï¿½\nï¿½ï¿½3ï¿½ï¿½1Ð¡Ê±ï¿½ï¿½ï¿½Ø»ï¿½\nï¿½ï¿½4ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ø»ï¿½ï¿½Æ»ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½";
+            int userinp;
+            cin >> userinp;
+            switch (userinp) {
+                case 1:
+                    system("shutdown -s -t 0");
+                    break;
+                case 2:
+                    system("shutdown -s -t 1800");
+                    break;
+                case 3:
+                    system("shutdown -s -t 3600");
+                    break;
+                case 4:
+                    system("shutdown -a");
+                    break;
+            }
+        } else if (cmd == 101) {
+            int n;
+            double num[10000], sum = 0;
+            cin >> n;
+            for (int i = 0; i < n; i++) {
+                cin >> num[i];
+                sum += num[i];
+            }
+            printf("%.2f\n", sum);
+        } else
+            cout << "No such command!\n";
+    }
+    return 0;
 }
 int knowit(char a[100]) {
-	if(len==1&&a[0]>='0'&&a[0]<='9') {
-		return a[0]-'0';
-	} else {
-		if(!strcmp(a,ca)) {
-			return 101;
-		}
-	}
-	return -1;
+    if (len == 1 && a[0] >= '0' && a[0] <= '9') {
+        return a[0] - '0';
+    } else {
+        if (!strcmp(a, ca)) {
+            return 101;
+        }
+    }
+    return -1;
 }
 void pingtool() {
-	while(1) {
-		int a,pto=1;
-		cout<<"ping²âÊÔ£¨°æ±¾20210711£©\n-----------------------------------------\n¹¦ÄÜÁÐ±í£º\n[1]¿ªÊ¼ping²âÊÔ\n[2]ÍË³ö\n[3]µ÷ÕûpingÉèÖÃ\n-----------------------------------------\nÇëÊäÈë£º";
-		scanf("%d",&a);
-		if(a==1) {
-			system("cls");
-			cout<<"ÏÖÔÚ¿ªÊ¼ping......";
-			switch(pto){
-				case 1:
-					system("ping www.luogu.com.cn");
-					break;
-				case 2:
-					system("ping www.baidu.com");
-					break;
-				case 3:
-					system("ping www.ithome.com");
-					break;
-				default:
-					system("ping www.luogu.com.cn");
-			}
-			cout<<"\n\n";
-		} else if(a==2) break;
-		else if(a==3) {
-			cout<<"\n-----------------------------------------\nÉèÖÃÒªpingµÄÍøÕ¾£º\n[1]Âå¹È£¨Ä¬ÈÏ£©\n[2]°Ù¶È\n[3]ITÖ®¼Ò\nÇëÊäÈë£º";
-			cin>>pto;
-			continue;
-		} else cout<<"No such command!";
-	}
+    while (1) {
+        int a, pto = 1;
+        cout << "pingï¿½ï¿½ï¿½Ô£ï¿½ï¿½æ±¾20210731ï¿½ï¿½\n-----------------------------------------\nï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½\n[1]ï¿½ï¿½Ê¼pingï¿½ï¿½ï¿½ï¿½\n[2]ï¿½Ë³ï¿½\n[3]ï¿½ï¿½ï¿½ï¿½pingï¿½ï¿½ï¿½ï¿½\n-----------------------------------------\nï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
+        scanf("%d", &a);
+        if (a == 1) {
+            system("cls");
+            cout << "ï¿½ï¿½ï¿½Ú¿ï¿½Ê¼ping......";
+            switch (pto) {
+                case 1:
+                    system("ping www.luogu.com.cn");
+                    break;
+                case 2:
+                    system("ping www.cloudflare.com");
+                    break;
+                case 3:
+                    system("ping www.ithome.com");
+                    break;
+                default:
+                    system("ping www.luogu.com.cn");
+            }
+            cout << "\n\n";
+        } else if (a == 2)
+            break;
+        else if (a == 3) {
+            cout << "\n-----------------------------------------\nï¿½ï¿½ï¿½ï¿½Òªpingï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½\n[1]ï¿½ï¿½ï¿½È£ï¿½Ä¬ï¿½Ï£ï¿½\n[2]Cloudflare\n[3]ITÖ®ï¿½ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
+            cin >> pto;
+            continue;
+        } else
+            cout << "No such command!";
+    }
 }
-
-
