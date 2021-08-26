@@ -13,7 +13,7 @@ void pingtool();
 int main() {
 	char input[100];
 	while(1) {
-		cout<<"---------------------------------------------------------------\n简易命令行工具箱-SCLToolbox v0.8.1\n功能指令菜单:\n0.退出\n1.关于\n2.清屏\n3.ping测试\n4.帮助中心\n5.Windows关机小助手\n---------------------------------------------------------------\n请输入指令：";
+		cout<<"---------------------------------------------------------------\n简易命令行工具箱-SCLToolbox v0.8.5\n功能指令菜单:\n0.退出\n1.关于\n2.清屏\n3.网络指令工具\n4.帮助中心\n5.Windows关机小助手\n---------------------------------------------------------------\n请输入指令：";
 		cin>>input;
 		len=strlen(input);
 		len<100 ? cmd=knowit(input) : cmd=-1;
@@ -22,7 +22,7 @@ int main() {
 			cout<<"Goodbye!";
 			break;
 		} else if(cmd==1) {
-			cout<<"软件版本：v0.8.1(20210731)\n作者：梦里徜徉（星夜Starlit-Night）\n编写日期：2021年7月31日\n";
+			cout<<"软件版本：v0.8.5(20210826)\n作者：梦里徜徉（星夜Starlit-Night）\n编写日期：2021年8月26日\n";
 			Sleep(3000);
 		} else if(cmd==2) {
 		} else if(cmd==3) {			
@@ -66,11 +66,11 @@ int knowit(char a[100]) {
 void pingtool() {
 	while(1) {
 		int a,pto=1;
-		cout<<"ping测试（版本20210731）\n-----------------------------------------\n功能列表：\n[1]开始ping测试\n[2]退出\n[3]调整ping设置\n-----------------------------------------\n请输入：";
+		cout<<"网络指令工具（版本20210826）\n-----------------------------------------\n功能列表：\n[0]退出\n[1]开始ping\n[2]开始tracert（路由跟踪）\n[3]设置\n-----------------------------------------\n请输入：";
 		scanf("%d",&a);
-		if(a==1) {
+		if(a==0) return ;
+		else if(a==1) {
 			system("cls");
-			cout<<"现在开始ping......";
 			switch(pto){
 				case 1:
 					system("ping www.luogu.com.cn");
@@ -85,9 +85,25 @@ void pingtool() {
 					system("ping www.luogu.com.cn");
 			}
 			cout<<"\n\n";
-		} else if(a==2) break;
+		} 
+		else if(a==2){
+			system("cls");
+			switch(pto){
+				case 1:
+					system("tracert www.luogu.com.cn");
+					break;
+				case 2:
+					system("tracert www.cloudflare.com");
+					break;
+				case 3:
+					system("tracert www.ithome.com");
+					break;
+				default:
+					system("tracert www.luogu.com.cn");
+			}
+		}
 		else if(a==3) {
-			cout<<"\n-----------------------------------------\n设置要ping的网站：\n[1]洛谷（默认）\n[2]Cloudflare\n[3]IT之家\n请输入：";
+			cout<<"\n-----------------------------------------\n设置要ping或tracert的网站：\n[1]洛谷（默认）\n[2]Cloudflare\n[3]IT之家\n请输入：";
 			cin>>pto;
 			continue;
 		} else cout<<"No such command!";
