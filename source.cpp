@@ -16,7 +16,7 @@ void pingtool();
 int main() {
 	char input[100];
 	while (1) {
-		cout << "---------------------------------------------------------------\n简易命令行工具箱-SCLToolbox v0.9.0\n功能菜单:\n0.退出\n1.关于\n2.清屏\n3.网络指令工具\n4.帮助中心\n5.Windows关机小助手\n---------------------------------------------------------------\n请输入指令：";
+		cout << "---------------------------------------------------------------\n简易命令行工具箱-SCLToolbox v1.0-beta(20220122)\n功能菜单:\n0.退出\n1.关于\n2.清屏\n3.网络指令工具\n4.帮助中心\n5.Windows关机小助手\n---------------------------------------------------------------\n请输入指令：";
 		cin >> input;
 		len = strlen(input);
 		len < 100 ? cmd = knowit(input) : cmd = -1;
@@ -25,7 +25,7 @@ int main() {
 			cout << "Goodbye!";
 			break;
 		} else if (cmd == 1) {
-			cout << "软件版本：v0.9.0(20220120)\n作者：梦里徜徉（星夜Starlit-Night）\n更新日期：2022年1月20日\n";
+			cout << "软件版本：v1.0-beta(20220122)\n作者：梦里徜徉（星夜Starlit-Night）\n更新日期：2022年1月22日\nPowered by CPlusPlus";
 			Sleep(3000);
 		} else if (cmd == 2) {
 		} else if (cmd == 3) {
@@ -85,7 +85,7 @@ int knowit(char a[100]) {
 void pingtool() {
 	while (1) {
 		int a, pto = 1;
-		cout << "网络指令工具（版本20210826）\n-----------------------------------------\n功能列表：\n[0]退出\n[1]开始ping\n[2]开始tracert（路由跟踪）\n[3]设置\n-----------------------------------------\n请输入：";
+		cout << "网络指令工具（版本20220122）\n-----------------------------------------\n功能列表：\n[0]退出\n[1]开始ping测试\n[2]开始tracert（路由跟踪）测试\n[3]设置\n-----------------------------------------\n请输入：";
 		scanf("%d", &a);
 		if (a == 0)
 			return;
@@ -93,35 +93,35 @@ void pingtool() {
 			system("cls");
 			switch (pto) {
 				case 1:
-					system("ping www.luogu.com.cn");
+					system("ping www.baidu.com");
 					break;
 				case 2:
-					system("ping www.cloudflare.com");
+					system("ping www.luogu.com.cn");
 					break;
 				case 3:
 					system("ping www.ithome.com");
 					break;
 				default:
-					system("ping www.luogu.com.cn");
+					system("ping www.baidu.com");
 			}
-			cout << "\n\n";
+			cout << endl << endl;
 		} else if (a == 2) {
 			system("cls");
 			switch (pto) {
 				case 1:
-					system("tracert www.luogu.com.cn");
+					system("tracert www.baidu.com");
 					break;
 				case 2:
-					system("tracert www.cloudflare.com");
+					system("tracert www.luogu.com.cn");
 					break;
 				case 3:
 					system("tracert www.ithome.com");
 					break;
 				default:
-					system("tracert www.luogu.com.cn");
+					system("tracert www.baidu.com");
 			}
 		} else if (a == 3) {
-			cout << "\n-----------------------------------------\n设置要ping或tracert的网站：\n[1]洛谷（默认）\n[2]Cloudflare\n[3]IT之家\n请输入：";
+			cout << "\n-----------------------------------------\n请选择要ping或tracert的网站：\n[1]百度（默认）\n[2]洛谷\n[3]IT之家\n请输入：";
 			cin >> pto;
 			continue;
 		} else
